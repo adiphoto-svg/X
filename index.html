@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -8,48 +9,6 @@
 
 <style>
 
-.gallery{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
-padding:10px;
-max-width:600px;
-margin:auto;
-}
- 
-.box{
-position:relative;
-overflow:hidden;
-border-radius:8px;
-}
-
-.box img{
-width:100%;
-height:200px;
-object-fit:cover;
-border-radius:10px;
-}
-
-.text{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-font-size:22px;
-font-weight:bold;
-background:rgba(0,0,0,0.4);
-padding:8px 16px;
-border-radius:20px;
-}
-
-.full{
-grid-column:1/3;
-  }
-
-.full{
-grid-column:1/3;
-}
-  
 body{
 margin:0;
 background:black;
@@ -78,20 +37,50 @@ margin-left:20px;
 
 .hero{
 text-align:center;
-padding:120px 20px;
+padding:80px 20px;
 }
 
 .hero h1{
-font-size:40px;
+font-size:36px;
 }
 
-button{
-background:white;
-color:black;
-border:none;
-padding:10px 20px;
+/* GALERI */
+
+.gallery{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+padding:10px;
+max-width:600px;
+margin:auto;
+}
+
+.box{
+position:relative;
+overflow:hidden;
+border-radius:10px;
+}
+
+.box img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+.text{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:22px;
+font-weight:bold;
+background:rgba(0,0,0,0.4);
+padding:8px 16px;
 border-radius:20px;
-cursor:pointer;
+}
+
+.full{
+grid-column:1/3;
 }
 
 /* FOOTER */
@@ -100,29 +89,36 @@ footer{
 text-align:center;
 padding:40px;
 background:#111;
-color:white;
 }
 
-.header{
-text-align:center;
-padding:40px 20px;
-}
-
-<div class="header">
-<h1>ADI PHOTO</h1>
-<p>Pilih Album</p>
-</div>
 </style>
 
 </head>
 
 <body>
 
+<!-- NAVBAR -->
+
 <nav>
 
 <h2>ADI PHOTO</h2>
-  
-<h2>Pilih Album</h2>
+
+<div>
+<a href="index.html">Home</a>
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h1>Pilih Album</h1>
+<p>Galeri foto untuk wedding dan event</p>
+
+</section>
+
+<!-- GALERI -->
 
 <div class="gallery">
 
@@ -147,26 +143,12 @@ padding:40px 20px;
 </a>
 
 </div>
-<div>
-<a href="index.html">Home</a>
-</div>
 
-</nav>
-
-<section class="hero">
-
-<h1>Website Fotografer Profesional</h1>
-
-<p>Galeri foto untuk wedding dan event</p>
-
-<a class="button" href="gallery.html">Lihat Galeri</a>
-
-</section>
+<!-- FOOTER -->
 
 <footer>
 
 <h3>ADI PHOTO</h3>
-
 <p>© 2026</p>
 
 </footer>
