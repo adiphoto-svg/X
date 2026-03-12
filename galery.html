@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Galeri - ADI Photo</title>
+<title>Album Foto</title>
 
 <style>
 
@@ -15,89 +15,44 @@ font-family:Arial;
 background:#f5f7fa;
 }
 
-/* NAVBAR */
-
 nav{
 display:flex;
 justify-content:space-between;
-align-items:center;
 padding:20px 40px;
 background:white;
-box-shadow:0 5px 20px rgba(0,0,0,0.08);
 }
 
 nav a{
 margin-left:20px;
 text-decoration:none;
-color:#111;
-font-weight:500;
+color:black;
 }
 
-/* TITLE */
-
-.title{
-text-align:center;
-margin-top:40px;
-}
-
-.title h1{
-font-size:36px;
-}
-
-/* MASONRY GALLERY */
-
-.gallery{
-max-width:1200px;
+.albums{
+max-width:1000px;
 margin:auto;
-padding:40px 20px;
-column-count:3;
-column-gap:20px;
+padding:50px 20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
-.gallery img{
-width:100%;
-margin-bottom:20px;
+.album{
+background:white;
 border-radius:12px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
 cursor:pointer;
-transition:0.3s;
 }
 
-.gallery img:hover{
-transform:scale(1.03);
-}
-
-/* LIGHTBOX */
-
-.lightbox{
-position:fixed;
-top:0;
-left:0;
+.album img{
 width:100%;
-height:100%;
-background:rgba(0,0,0,0.9);
-display:none;
-align-items:center;
-justify-content:center;
+height:180px;
+object-fit:cover;
 }
 
-.lightbox img{
-max-width:90%;
-max-height:90%;
-border-radius:10px;
-}
-
-/* MOBILE */
-
-@media (max-width:900px){
-.gallery{
-column-count:2;
-}
-}
-
-@media (max-width:600px){
-.gallery{
-column-count:1;
-}
+.album h3{
+padding:15px;
 }
 
 </style>
@@ -112,44 +67,38 @@ column-count:1;
 
 <div>
 <a href="index.html">Home</a>
-<a href="gallery.html">Galeri</a>
+<a href="gallery.html">Album</a>
 </div>
 
 </nav>
 
-<div class="title">
-<h1>Galeri Foto</h1>
-<p>Portfolio Fotografi</p>
+<section class="albums">
+
+<div class="album" onclick="location.href='album1.html'">
+
+<img src="https://picsum.photos/500/300?1">
+
+<h3>Wedding Andi & Sari</h3>
+
 </div>
 
-<section class="gallery">
+<div class="album" onclick="location.href='album2.html'">
 
-<img src="https://picsum.photos/500/600?1" onclick="openImage(this)">
-<img src="https://picsum.photos/500/700?2" onclick="openImage(this)">
-<img src="https://picsum.photos/500/650?3" onclick="openImage(this)">
-<img src="https://picsum.photos/500/550?4" onclick="openImage(this)">
-<img src="https://picsum.photos/500/620?5" onclick="openImage(this)">
-<img src="https://picsum.photos/500/720?6" onclick="openImage(this)">
-<img src="https://picsum.photos/500/580?7" onclick="openImage(this)">
+<img src="https://picsum.photos/500/300?2">
+
+<h3>Wisuda Universitas</h3>
+
+</div>
+
+<div class="album" onclick="location.href='album3.html'">
+
+<img src="https://picsum.photos/500/300?3">
+
+<h3>Prewedding Budi & Rina</h3>
+
+</div>
 
 </section>
-
-<div class="lightbox" id="lightbox" onclick="closeImage()">
-<img id="lightbox-img">
-</div>
-
-<script>
-
-function openImage(img){
-document.getElementById("lightbox").style.display="flex";
-document.getElementById("lightbox-img").src=img.src;
-}
-
-function closeImage(){
-document.getElementById("lightbox").style.display="none";
-}
-
-</script>
 
 </body>
 </html>
