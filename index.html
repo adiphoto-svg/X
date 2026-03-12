@@ -14,56 +14,60 @@ background:#000;
 color:white;
 }
 
-/* NAVBAR */
 
-nav{
-background:#000;
-color:white;
-padding:15px 20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-}
-
-nav div{
-margin-top:10px;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-margin-right:15px;
-}
-
-nav{
+/* Navbar */
+.navbar{
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:15px 20px;
-background:black;
+background:rgba(0,0,0,0.6);
+backdrop-filter: blur(8px);
+position:sticky;
+top:0;
+z-index:1000;
 }
 
 .logo{
 font-size:22px;
 font-weight:bold;
+color:white;
 }
 
-.menu{
+/* Menu */
+.nav-menu{
 display:flex;
-gap:20px;
+gap:25px;
 }
 
-.menu a{
+.nav-menu a{
 color:white;
 text-decoration:none;
+font-size:16px;
+position:relative;
+transition:0.3s;
 }
 
-.menu-toggle{
-display:none;
-font-size:28px;
-cursor:pointer;
+/* Efek garis bawah */
+.nav-menu a::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-5px;
+width:0;
+height:2px;
+background:#00ff9d;
+transition:0.3s;
 }
+
+.nav-menu a:hover::after{
+width:100%;
+}
+
+.nav-menu a:hover{
+color:#00ff9d;
+}
+</style>
 
 /* MOBILE */
 
@@ -191,12 +195,15 @@ font-weight:bold;
 
 <nav>
 
-<h2>ADI PHOTO</h2>
+<div class="navbar">
 
-<div>
-<a href="index.html">Home</a>
-<a href="paket.html">Paket</a>
-<a href="booking.html">Booking Fotografer</a>
+<div class="logo">ADI PHOTO</div>
+
+<div class="nav-menu">
+<a href="#">Home</a>
+<a href="#booking">Booking Fotografer</a>
+<a href="#galeri">Galeri</a>
+
 </div>
 
 <section class="hero">
