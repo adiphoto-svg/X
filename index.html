@@ -36,6 +36,60 @@ text-decoration:none;
 margin-right:15px;
 }
 
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 20px;
+background:black;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+}
+
+.menu{
+display:flex;
+gap:20px;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+}
+
+.menu-toggle{
+display:none;
+font-size:28px;
+cursor:pointer;
+}
+
+/* MOBILE */
+
+@media (max-width:768px){
+
+.menu{
+display:none;
+flex-direction:column;
+position:absolute;
+top:60px;
+right:20px;
+background:#111;
+padding:20px;
+border-radius:10px;
+}
+
+.menu.active{
+display:flex;
+}
+
+.menu-toggle{
+display:block;
+}
+
+ }
+
 /* HERO */
 
 .hero{
@@ -165,13 +219,33 @@ margin-top:40px;
 <img src="https://picsum.photos/400/300?6">
 <div class="text">Studio</div>
 </div>
+<nav>
 
+<div class="logo">ADI PHOTO</div>
+
+<div class="menu-toggle" onclick="toggleMenu()">
+☰
+</div>
+
+<div class="menu" id="menu">
+<a href="index.html">Home</a>
+<a href="paket.html">Paket</a>
+<a href="booking.html">Booking</a>
+</div>
+
+</nav>
 </section>
 
 <footer>
 <h3>ADI PHOTO</h3>
 <p>© 2026</p>
 </footer>
+<script>
 
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("active");
+}
+
+</script>
 </body>
 </html>
