@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Galeri Foto</title>
+<title>Galeri - ADI Photo</title>
 
 <style>
 
@@ -15,36 +15,58 @@ font-family:Arial;
 background:#f5f7fa;
 }
 
+/* NAVBAR */
+
 nav{
 display:flex;
 justify-content:space-between;
+align-items:center;
 padding:20px 40px;
 background:white;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
 }
 
 nav a{
 margin-left:20px;
 text-decoration:none;
-color:black;
+color:#111;
+font-weight:500;
 }
+
+/* TITLE */
+
+.title{
+text-align:center;
+margin-top:40px;
+}
+
+.title h1{
+font-size:36px;
+}
+
+/* MASONRY GALLERY */
 
 .gallery{
-max-width:1100px;
+max-width:1200px;
 margin:auto;
-padding:50px 20px;
-}
-
-.masonry{
+padding:40px 20px;
 column-count:3;
-column-gap:15px;
+column-gap:20px;
 }
 
-.masonry img{
+.gallery img{
 width:100%;
-margin-bottom:15px;
-border-radius:10px;
+margin-bottom:20px;
+border-radius:12px;
 cursor:pointer;
+transition:0.3s;
 }
+
+.gallery img:hover{
+transform:scale(1.03);
+}
+
+/* LIGHTBOX */
 
 .lightbox{
 position:fixed;
@@ -61,6 +83,21 @@ justify-content:center;
 .lightbox img{
 max-width:90%;
 max-height:90%;
+border-radius:10px;
+}
+
+/* MOBILE */
+
+@media (max-width:900px){
+.gallery{
+column-count:2;
+}
+}
+
+@media (max-width:600px){
+.gallery{
+column-count:1;
+}
 }
 
 </style>
@@ -76,47 +113,43 @@ max-height:90%;
 <div>
 <a href="index.html">Home</a>
 <a href="gallery.html">Galeri</a>
-<a href="login.html">Login</a>
 </div>
 
 </nav>
 
-<div class="gallery">
-
+<div class="title">
 <h1>Galeri Foto</h1>
-
-<div class="masonry">
-
-<img src="https://images.unsplash.com/photo-1519741497674-611481863552" onclick="openLightbox(this)">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" onclick="openLightbox(this)">
-<img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc" onclick="openLightbox(this)">
-<img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92" onclick="openLightbox(this)">
-<img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7" onclick="openLightbox(this)">
-
+<p>Portfolio Fotografi</p>
 </div>
 
-</div>
+<section class="gallery">
 
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+<img src="https://picsum.photos/500/600?1" onclick="openImage(this)">
+<img src="https://picsum.photos/500/700?2" onclick="openImage(this)">
+<img src="https://picsum.photos/500/650?3" onclick="openImage(this)">
+<img src="https://picsum.photos/500/550?4" onclick="openImage(this)">
+<img src="https://picsum.photos/500/620?5" onclick="openImage(this)">
+<img src="https://picsum.photos/500/720?6" onclick="openImage(this)">
+<img src="https://picsum.photos/500/580?7" onclick="openImage(this)">
+
+</section>
+
+<div class="lightbox" id="lightbox" onclick="closeImage()">
 <img id="lightbox-img">
 </div>
 
 <script>
 
-function openLightbox(img){
-
+function openImage(img){
 document.getElementById("lightbox").style.display="flex";
 document.getElementById("lightbox-img").src=img.src;
-
 }
 
-function closeLightbox(){
-
+function closeImage(){
 document.getElementById("lightbox").style.display="none";
-
 }
 
 </script>
 
 </body>
-  </html>
+</html>
