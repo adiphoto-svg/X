@@ -14,8 +14,8 @@ background:#000;
 color:white;
 }
 
+/* NAVBAR */
 
-/* Navbar */
 .navbar{
 display:flex;
 justify-content:space-between;
@@ -31,10 +31,8 @@ z-index:1000;
 .logo{
 font-size:22px;
 font-weight:bold;
-color:white;
 }
 
-/* Menu */
 .nav-menu{
 display:flex;
 gap:25px;
@@ -48,7 +46,6 @@ position:relative;
 transition:0.3s;
 }
 
-/* Efek garis bawah */
 .nav-menu a::after{
 content:'';
 position:absolute;
@@ -67,13 +64,18 @@ width:100%;
 .nav-menu a:hover{
 color:#00ff9d;
 }
-</style>
 
-/* MOBILE */
+/* MOBILE MENU */
+
+.menu-toggle{
+display:none;
+font-size:25px;
+cursor:pointer;
+}
 
 @media (max-width:768px){
 
-.menu{
+.nav-menu{
 display:none;
 flex-direction:column;
 position:absolute;
@@ -84,7 +86,7 @@ padding:20px;
 border-radius:10px;
 }
 
-.menu.active{
+.nav-menu.active{
 display:flex;
 }
 
@@ -92,7 +94,7 @@ display:flex;
 display:block;
 }
 
- }
+}
 
 /* HERO */
 
@@ -140,6 +142,9 @@ padding:10px;
 position:relative;
 overflow:hidden;
 border-radius:10px;
+opacity:0;
+transform:translateY(40px);
+transition:0.6s;
 }
 
 .box img{
@@ -153,12 +158,6 @@ transition:0.4s;
 transform:scale(1.1);
 }
 
-.box{
-opacity:0;
-transform:translateY(40px);
-transition:0.6s;
- }
- 
 .text{
 position:absolute;
 bottom:10px;
@@ -176,6 +175,9 @@ padding:40px;
 background:#111;
 margin-top:40px;
 }
+
+/* WHATSAPP */
+
 .wa{
 position:fixed;
 bottom:20px;
@@ -186,33 +188,40 @@ padding:15px 18px;
 border-radius:50px;
 text-decoration:none;
 font-weight:bold;
- }
+}
 
 </style>
 </head>
 
 <body>
 
-<nav>
+<!-- NAVBAR -->
 
 <div class="navbar">
 
 <div class="logo">ADI PHOTO</div>
 
-<div class="nav-menu">
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+<div class="nav-menu" id="menu">
 <a href="#">Home</a>
 <a href="#booking">Booking Fotografer</a>
 <a href="#galeri">Galeri</a>
+</div>
 
 </div>
+
+<!-- HERO -->
 
 <section class="hero">
 <h1>Fotografi Profesional</h1>
 <p>Wedding • Wisuda • Prewedding</p>
-<button>Lihat Galeri</button>
+<button onclick="scrollGaleri()">Lihat Galeri</button>
 </section>
 
-<section class="gallery">
+<!-- GALERI -->
+
+<section class="gallery" id="galeri">
 
 <div class="box">
 <img src="https://picsum.photos/400/300?1">
@@ -243,52 +252,43 @@ font-weight:bold;
 <img src="https://picsum.photos/400/300?6">
 <div class="text">Studio</div>
 </div>
-<nav>
 
-<div class="logo">ADI PHOTO</div>
-
-<div class="menu-toggle" onclick="toggleMenu()">
-☰
-</div>
-
-<div class="menu" id="menu">
-<a href="index.html">Home</a>
-<a href="paket.html">Paket</a>
-<a href="booking.html">Booking</a>
-</div>
-
-</nav>
 </section>
+
+<!-- FOOTER -->
 
 <footer>
 <h3>ADI PHOTO</h3>
 <p>© 2026</p>
 </footer>
+
+<a href="https://wa.me/628xxxxxxxxxx" class="wa">Chat</a>
+
 <script>
+
+/* MENU MOBILE */
 
 function toggleMenu(){
 document.getElementById("menu").classList.toggle("active");
 }
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-anchor.addEventListener('click', function(e) {
-e.preventDefault();
- 
-document.querySelector(this.getAttribute('href')).scrollIntoView({
-behavior: 'smooth'
+/* SCROLL GALERI */
+
+function scrollGaleri(){
+document.getElementById("galeri").scrollIntoView({
+behavior:"smooth"
 });
-});
-});
+}
 
-<script>
+/* POPUP FOTO */
 
-let images = document.querySelectorAll(".box img");
+let images=document.querySelectorAll(".box img");
 
-images.forEach(img => {
+images.forEach(img=>{
 
-img.onclick = function(){
+img.onclick=function(){
 
-let popup = document.createElement("div");
+let popup=document.createElement("div");
 
 popup.style.position="fixed";
 popup.style.top="0";
@@ -300,7 +300,7 @@ popup.style.display="flex";
 popup.style.alignItems="center";
 popup.style.justifyContent="center";
 
-let foto = document.createElement("img");
+let foto=document.createElement("img");
 foto.src=this.src;
 foto.style.maxWidth="90%";
 foto.style.maxHeight="90%";
@@ -317,17 +317,17 @@ document.body.appendChild(popup);
 
 });
 
-<script>
+/* ANIMASI SCROLL */
 
-let boxes = document.querySelectorAll(".box");
+let boxes=document.querySelectorAll(".box");
 
 window.addEventListener("scroll",()=>{
 
 boxes.forEach(box=>{
 
-let pos = box.getBoundingClientRect().top;
+let pos=box.getBoundingClientRect().top;
 
-if(pos < window.innerHeight - 100){
+if(pos<window.innerHeight-100){
 box.style.opacity="1";
 box.style.transform="translateY(0)";
 }
@@ -337,8 +337,6 @@ box.style.transform="translateY(0)";
 });
 
 </script>
- <a href="https://wa.me/628xxxxxxxxxx" class="wa">
-Chat
- </a>
+
 </body>
 </html>
